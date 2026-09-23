@@ -19,12 +19,12 @@ int main() {
     int suma_intentos;
     int x=UMBRAL_X;
     
-    int eventos_equipos[TOTAL_EVENTOS] = {0, 1, 2, 0, 1, 2, 1, 2, 2, 2, 1, 0, 2, 1, 2, 0, 1, 2, 1, 0};
-    int eventos_tipos[TOTAL_EVENTOS]   = {0, 1, 1, 0, 1, 2, 1, 1, 2, 1, 0, 2, 1, 1, 2, 0, 1, 2, 1, 0};
+    int equipos[TOTAL_EVENTOS] = {0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3};
+    int eventos_tipos[TOTAL_EVENTOS]   = {0, 1, 1, 0, 1, 2, 1, 1, 0, 1, 0, 2, 1, 1, 2, 0, 1, 2, 1, 0};
     int matriz_equipos[NUM_EQUIPOS][TIPOS_EVENTOS] = {0};  
 
 for (i = 0; i < TOTAL_EVENTOS; i++) {
-        int eq = eventos_equipos[i];   
+        int eq = equipos[i];   
         int tipo = eventos_tipos[i]; 
 
         if (validarTipoEvento(tipo) == 1) {
@@ -43,9 +43,9 @@ for (i = 0; i < TOTAL_EVENTOS; i++) {
        // printf("%d\n",suma_intentos);
 
         if(suma_intentos>x){
-            printf("  %d %d %d sospechose \n ",ctr_incorrecto,usr_inexistente,suma_intentos);
+            printf("%d %d %d SOSPECHOSO \n ",ctr_incorrecto,usr_inexistente,suma_intentos);
         }else{
-            printf(" %d %d %d normal \n ",ctr_incorrecto,usr_inexistente,suma_intentos);
+            printf("%d %d %d NORMAL \n ",ctr_incorrecto,usr_inexistente,suma_intentos);
         }
 
     } 
