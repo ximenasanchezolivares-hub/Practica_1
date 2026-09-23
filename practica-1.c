@@ -19,6 +19,8 @@ int main() {
     int i;
     int ctr_incorrecto;
     int usr_inexistente;
+    int acs_correcto;
+    int acs_bloqueado;
     int suma_intentos;
     int x=UMBRAL_X;
     
@@ -47,11 +49,13 @@ for (i = 0; i < TOTAL_EVENTOS; i++) {
     for(i=0;i<NUM_EQUIPOS;i++){
         int *apt_fila=*(matriz_equipos+i);
 
+        acs_correcto=*(apt_fila+0);
         ctr_incorrecto=*(apt_fila+1);
         usr_inexistente=*(apt_fila+2);
+        acs_bloqueado=*(apt_fila+3);
         calcularSumaReferencia(&suma_intentos, ctr_incorrecto, usr_inexistente);
 
-        printf("Equipo: %s | Intentos fallidos -- %d ", nombres_equipos[i], suma_intentos);
+        printf("Equipo: %s |(0) -- %d |(1) -- %d |(2) -- %d |(3) -- %d |Intentos fallidos -- %d ", nombres_equipos[i], acs_correcto, ctr_incorrecto, usr_inexistente, acs_bloqueado, suma_intentos);
         if(suma_intentos>x){
             printf("SOSPECHOSO \n ");
         }else{
