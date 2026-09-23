@@ -43,18 +43,19 @@ for (i = 0; i < TOTAL_EVENTOS; i++) {
     }
     printf("\n");
 
+    printf("--- REPORTE FINAL Y ANALISIS ---\n");
     for(i=0;i<NUM_EQUIPOS;i++){
         int *apt_fila=*(matriz_equipos+i);
 
         ctr_incorrecto=*(apt_fila+1);
         usr_inexistente=*(apt_fila+2);
-
         calcularSumaReferencia(&suma_intentos, ctr_incorrecto, usr_inexistente);
 
+        printf("Equipo: %s | Intentos fallidos -- %d ", nombres_equipos[i], suma_intentos);
         if(suma_intentos>x){
-            printf("%d %d %d SOSPECHOSO \n ",ctr_incorrecto,usr_inexistente,suma_intentos);
+            printf("SOSPECHOSO \n ");
         }else{
-            printf("%d %d %d NORMAL \n ",ctr_incorrecto,usr_inexistente,suma_intentos);
+            printf("NORMAL \n ");
         }
 
     } 
