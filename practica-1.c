@@ -3,13 +3,6 @@
 #define NUM_EQUIPOS 4
 #define TIPOS_EVENTOS 4  /* (0) Acceso correcto, (1) Contraseña incorrecta, (2) Usuario inexistente, (3) Acceso bloqueado*/
 
-/*int validarTipoEvento(int tipo) {
-    if (tipo >= 0 && tipo <= 3) {
-        return 1; // Válido
-    }
-    return 0; // Inválido
-}*/
-
 
 int main() {
     int i;
