@@ -2,6 +2,7 @@
 
 #define NUM_EQUIPOS 4
 #define TIPOS_EVENTOS 4  /* (0) Acceso correcto, (1) Contraseña incorrecta, (2) Usuario inexistente, (3) Acceso bloqueado*/
+#define TOTAL_EVENTOS 20
 
 int validarTipoEvento(int tipo) {
     if (tipo >= 0 && tipo <= 3) {
@@ -10,26 +11,36 @@ int validarTipoEvento(int tipo) {
     return 0; // Inválido
 }
 
+void sumarFallos(int *resultado, int incorrecto, int inexistente) {
+    *resultado = incorrecto + inexistente; 
+}
+
 int main() {
     int i;
     int ctr_incorrecto;
     int usr_inexistente;
     int suma_intentos;
     
-    int matriz_equipos[NUM_EQUIPOS][TIPOS_EVENTOS]={
-            {8,1,0,0},
-            {1,6,2,1},
-            {5,0,1,0},
-            {0,2,5,1}
+    int eventos_equipos[TOTAL_EVENTOS] = {0, 1, 2, 0, 1, 2, 1, 2, 2, 2, 1, 0, 2, 1, 2, 0, 1, 2, 1, 0};
+    int eventos_tipos[TOTAL_EVENTOS]   = {0, 1, 1, 0, 1, 2, 1, 1, 2, 1, 0, 2, 1, 1, 2, 0, 1, 2, 1, 0};
+    int matriz_equipos[NUM_EQUIPOS][TIPOS_EVENTOS] = {0};  
 
-    };
-       
+for (i = 0; i < TOTAL_EVENTOS; i++) {
+        int eq = eventos_equipos[i];   /* Extrae la PC actual */
+        int tipo = eventos_tipos[i]; 
+
+        if (validarTipoEvento(tipo) == 1) {
+            matriz_equipos[eq][tipo]++;
+        }
+    }
+
     for(i=0;i<NUM_EQUIPOS;i++){
         int *apt_fila=*(matriz_equipos+i);
+
         ctr_incorrecto=*(apt_fila+1);
         usr_inexistente=*(apt_fila+2);
 
-        suma_intentos=ctr_incorrecto+usr_inexistente;
+        // suma_intentos=ctr_incorrecto+usr_inexistente;
         printf("%d\n",suma_intentos);
     } 
 
