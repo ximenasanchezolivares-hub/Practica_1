@@ -11,6 +11,5 @@ Programa desarrollado en el lenguaje C que procesa registros simulados de acceso
 * **Regla de Detección:** Clasificación de equipos como `NORMAL` o `SOSPECHOSO` en función de un umbral de intentos fallidos ($X = 3$).
 
 
- **Compilar el programa:**
-   ```bash
+ **Compilador** 
    gcc practica-1.c -o practica-1
